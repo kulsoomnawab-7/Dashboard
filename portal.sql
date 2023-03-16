@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 15, 2023 at 05:04 PM
--- Server version: 5.7.40
--- PHP Version: 8.0.26
+-- Generation Time: Mar 16, 2023 at 12:28 PM
+-- Server version: 5.7.31
+-- PHP Version: 8.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `anusdb_2`
+-- Database: `portal`
 --
 
 -- --------------------------------------------------------
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `attendances` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `attendances_std_id_foreign` (`Std_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `attendances`
@@ -78,7 +78,8 @@ CREATE TABLE IF NOT EXISTS `attendances` (
 
 INSERT INTO `attendances` (`id`, `Std_ID`, `Month`, `Classes_Held`, `Classes_Attended`, `created_at`, `updated_at`) VALUES
 (1, 'Student1144019', 'september', 13, 12, NULL, NULL),
-(2, 'Student1142648', 'June', 13, 13, NULL, NULL);
+(2, 'Student1142648', 'June', 13, 13, NULL, NULL),
+(3, 'Student1157559', 'March', 13, 11, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -333,11 +334,11 @@ INSERT INTO `examsubjectmasters` (`id`, `Curr_ID`, `Sem_ID`, `Std_ID`, `ExamType
 (11, 2, 1, NULL, 'IT3', 'Data Management (SQL Server)', '2019-08-05 13:37:29', '2019-08-05 13:37:29'),
 (12, 2, 1, NULL, 'R1', 'Logic Building and Elementary Programming', '2019-08-05 13:37:31', '2019-08-05 13:37:31'),
 (13, 2, 1, NULL, 'R1', 'Data Management (SQL Server)', '2019-08-05 13:37:32', '2019-08-05 13:37:32'),
-(14, 2, 2, NULL, 'IT1', 'Markup Language and JSON', '2019-08-05 13:37:33', '2019-08-05 13:37:33'),
+(14, 2, 2, 'Student1157559', 'IT1', 'Markup Language and JSON', '2019-08-05 13:37:33', '2019-08-05 13:37:33'),
 (15, 2, 2, NULL, 'IT1', 'Object Oriented Programming Concepts  ', '2019-08-05 13:37:34', '2019-08-05 13:37:34'),
 (16, 2, 2, NULL, 'IT1', 'Fundamentals of Java', '2019-08-05 13:37:35', '2019-08-05 13:37:35'),
 (17, 2, 2, NULL, 'IT2', 'Application Programming using C#', '2019-08-05 13:37:36', '2019-08-05 13:37:36'),
-(18, 2, 2, NULL, 'IT3', 'Windows Forms Programming', '2019-08-05 13:37:37', '2019-08-05 13:37:37'),
+(18, 2, 2, 'Student1157559', 'IT3', 'Windows Forms Programming', '2019-08-05 13:37:37', '2019-08-05 13:37:37'),
 (19, 2, 2, NULL, 'R1', 'Fundamentals of Java', '2019-08-05 13:37:38', '2019-08-05 13:37:38'),
 (20, 2, 2, NULL, 'R1', 'Application Programming using C#', '2019-08-05 13:37:39', '2019-08-05 13:37:39'),
 (21, 2, 3, NULL, 'IT1', 'Windows Store Apps Development – I', '2019-08-05 13:37:40', '2019-08-05 13:37:40'),
@@ -1765,7 +1766,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 ('eODLHIkfjjoF1mz9s8lyfcSOkeSiTVSPcjsPIVGC', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidldmQXRITzJOTVhDN3Q5Wm5yTVNadllRV0dRcURDdXl4UUVSSGZBbyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3Rlcl9jb21wbGFpbnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjk6InNlc3Npb25pZCI7aTo0O3M6MTY6InNlc3Npb251c2VyZW1haWwiO3M6MjY6Im11aGFtbWFkYW5hc3o3ODZAZ21haWwuY29tIjtzOjE1OiJzZXNzaW9udXNlcm5hbWUiO3M6NDoiQW5hcyI7fQ==', 1679335782),
-('nzVxqKdM3rM6KOZP0rpP5CgkDgwmIFOz0if6k9gV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiWlB5M1QweUpUbWdzcVllRTlWWFdCYzdqdzVlVnlxcUQ0VkluMm9oZiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9leGFtZmV0Y2giO31zOjk6InNlc3Npb25pZCI7aTo4O3M6MTY6InNlc3Npb251c2VyZW1haWwiO3M6MjY6Imt1bHNvb20yMDEwYUBhcHRlY2hnZG4ubmV0IjtzOjY6InN0ZF9pZCI7czoxNDoiU3R1ZGVudDExNDI2NDgiO3M6MTU6InNlc3Npb251c2VybmFtZSI7czoyNzoiTXIuIEFOV0FBUi1VTC1IQVNTQU4gIElRQkFMIjt9', 1678899709);
+('r2CyrIw1sLCvpM9EiWR4mqxtgv2BXC5eP0X88VqO', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiT1k3Y3g3ODZiTXpVZ2FQMVFMbkZha0NsSlA3Rk1aNUk3UkNaUHVkbSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zdHVkZW50X3Byb2ZpbGUiO31zOjE2OiJzZXNzaW9udXNlcmVtYWlsIjtzOjI2OiJrdWxzb29tMjAxMGFAYXB0ZWNoZ2RuLm5ldCI7czoxNToic2Vzc2lvbnVzZXJuYW1lIjtzOjI3OiJNci4gQU5XQUFSLVVMLUhBU1NBTiAgSVFCQUwiO3M6Njoic3RkX2lkIjtzOjE0OiJTdHVkZW50MTE1NzU1OSI7czo5OiJzZXNzaW9uaWQiO2k6MTM7fQ==', 1678968240);
 
 -- --------------------------------------------------------
 
@@ -3559,14 +3560,15 @@ CREATE TABLE IF NOT EXISTS `temp_verfies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `temp_verfies`
 --
 
 INSERT INTO `temp_verfies` (`id`, `email`, `code`, `status`, `created_at`, `updated_at`) VALUES
-(12, 'anus2109d@aptechgdn.net', '177783', NULL, '2023-03-15 06:49:01', '2023-03-15 06:49:01');
+(12, 'anus2109d@aptechgdn.net', '177783', NULL, '2023-03-15 06:49:01', '2023-03-15 06:49:01'),
+(13, 'kulsoom2010a@aptechgdn.net', '558299', NULL, '2023-03-16 00:41:39', '2023-03-16 00:41:39');
 
 -- --------------------------------------------------------
 
@@ -3586,14 +3588,14 @@ CREATE TABLE IF NOT EXISTS `usermodels` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `usermodels_std_id_foreign` (`std_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `usermodels`
 --
 
 INSERT INTO `usermodels` (`id`, `name`, `email`, `password`, `role`, `std_id`, `created_at`, `updated_at`) VALUES
-(8, NULL, 'kulsoom2010a@aptechgdn.net', '12345678', 1, 'Student1142648', '2023-03-15 06:42:46', '2023-03-15 06:42:46');
+(15, NULL, 'kulsoom2010a@aptechgdn.net', '123456789', 1, 'Student1157559', '2023-03-16 00:42:20', '2023-03-16 00:42:20');
 
 -- --------------------------------------------------------
 
